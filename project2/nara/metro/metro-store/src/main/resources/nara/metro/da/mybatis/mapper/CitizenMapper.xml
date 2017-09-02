@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nara.metro.da.mybatis.mapper.CitizenMapper">
+
+    <!-- DISPLAY_NAME : insertOnly -->
+    <insert id="insert">
+        INSERT INTO MT_CITIZEN (
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            DISPLAY_NAME,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        ) VALUES (
+            #{id},
+            #{sequence},
+            #{name, javaType=Name, jdbcType=VARCHAR},
+            #{name.displayName},
+            #{username},
+            #{email},
+            #{phone},
+            #{guest},
+            #{time},
+            #{disqualified},
+            #{metroId},
+            #{entityVersion}
+        )
+    </insert>
+
+    <select id="exists" resultType="boolean">
+        SELECT EXISTS(SELECT 1
+                      FROM MT_CITIZEN
+                      WHERE ID = #{id})
+    </select>
+
+    <select id="existsByMetroIdAndUsername" resultType="boolean">
+        SELECT EXISTS(SELECT 1
+                      FROM MT_CITIZEN
+                      WHERE METRO_ID = #{metroId} AND USERNAME = #{username})
+    </select>
+
+    <resultMap id="CitizenMap" type="Citizen">
+        <result column="ID" property="id"/>
+        <result column="SEQUENCE" property="sequence"/>
+        <result column="NAME_JSON" property="name" javaType="Name" jdbcType="VARCHAR"/>
+        <result column="USERNAME" property="username"/>
+        <result column="EMAIL" property="email"/>
+        <result column="PHONE" property="phone"/>
+        <result column="GUEST" property="guest"/>
+        <result column="TIME" property="time"/>
+        <result column="DISQUALIFIED" property="disqualified"/>
+        <result column="METRO_ID" property="metroId"/>
+        <result column="ENTITY_VERSION" property="entityVersion"/>
+    </resultMap>
+
+    <select id="findOne" resultMap="CitizenMap">
+        SELECT
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        FROM
+            MT_CITIZEN
+        WHERE
+            ID = #{id}
+    </select>
+
+    <select id="findByMetroIdAndDisplayName" resultMap="CitizenMap">
+        SELECT
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        FROM
+            MT_CITIZEN
+        WHERE
+            METRO_ID = #{metroId}
+            AND DISPLAY_NAME = #{displayName}
+    </select>
+
+    <select id="findByMetroIdAndEmail" resultMap="CitizenMap">
+        SELECT
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        FROM
+            MT_CITIZEN
+        WHERE
+            METRO_ID = #{metroId}
+            AND EMAIL = #{email}
+    </select>
+
+    <select id="findByMetroIdAndUsername" resultMap="CitizenMap">
+        SELECT
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        FROM
+            MT_CITIZEN
+        WHERE
+            METRO_ID = #{metroId}
+            AND USERNAME = #{username}
+    </select>
+
+    <select id="findByEmail" resultMap="CitizenMap">
+        SELECT
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        FROM
+            MT_CITIZEN
+        WHERE
+            EMAIL = #{email}
+    </select>
+
+    <select id="findByMetroId" resultMap="CitizenMap">
+        SELECT
+            ID,
+            SEQUENCE,
+            NAME_JSON,
+            USERNAME,
+            EMAIL,
+            PHONE,
+            GUEST,
+            TIME,
+            DISQUALIFIED,
+            METRO_ID,
+            ENTITY_VERSION
+        FROM
+            MT_CITIZEN
+        WHERE
+            METRO_ID = #{metroId}
+        ORDER BY
+            SEQUENCE ASC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <update id="update">
+        UPDATE MT_CITIZEN
+        SET
+            SEQUENCE       = #{sequence},
+            NAME_JSON      = #{name, javaType=Name, jdbcType=VARCHAR},
+            DISPLAY_NAME   = #{name.displayName},
+            USERNAME       = #{username},
+            EMAIL          = #{email},
+            PHONE          = #{phone},
+            GUEST          = #{guest},
+            TIME           = #{time},
+            DISQUALIFIED   = #{disqualified},
+            METRO_ID       = #{metroId},
+            ENTITY_VERSION = #{entityVersion}
+        WHERE
+            ID = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM MT_CITIZEN
+        WHERE ID = #{id}
+    </delete>
+</mapper>
