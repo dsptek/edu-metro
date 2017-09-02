@@ -131,6 +131,11 @@ public class LoginMybatisStoreTest {
             Citizen citizen = new Citizen(METRO_ID, i, new Name(Locale.US, "Seongyeong", "Han"), "test" + i + "@nextree.co.kr");
             LoginUser loginUser = new LoginUser(citizen, "1111");
             loginStore.create(loginUser);
+            try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
         }
 
         List<LoginUser> users = loginStore.retrieveByMetroId(METRO_ID, 8, 5);

@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>metro-store</artifactId>
+    <artifactId>metro-store-mybatis</artifactId>
 
     <dependencies>
         <dependency>
@@ -21,10 +21,6 @@
             <groupId>nara.share</groupId>
             <artifactId>share-store</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
