@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nara.metro.da.mybatis.mapper.LoginTimeMapper">
+
+    <insert id="insert">
+        INSERT INTO MT_LOGIN_TIME (
+            ID,
+            CITIZEN_ID,
+            TIME_JSON
+        ) VALUES (
+            #{id},
+            #{citizenId},
+            #{time, javaType=java.time.ZonedDateTime, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="exists" resultType="boolean">
+        SELECT EXISTS(SELECT 1
+                      FROM MT_LOGIN_TIME
+                      WHERE ID = #{id})
+    </select>
+
+    <select id="findByCitizenId" resultType="LoginTime">
+        SELECT
+            ID,
+            CITIZEN_ID,
+            TIME_JSON
+        FROM
+            MT_LOGIN_TIME
+        WHERE
+            CITIZEN_ID = #{citizenId}
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM MT_LOGIN_TIME
+        WHERE ID = #{id}
+    </delete>
+
+    <delete id="deleteByCitizenId">
+        DELETE FROM MT_LOGIN_TIME
+        WHERE CITIZEN_ID = #{citizenId}
+    </delete>
+
+</mapper>
