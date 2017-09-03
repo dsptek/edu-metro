@@ -17,6 +17,11 @@ public class MetroServiceResourceTest extends AbstractMetroApplicationTests {
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @Test
+    public void blankTest() {
+    	//
+    }
+    
+//    @Test
     public void test() {
         //
         Metro metro = metroServiceRestAdapter().findMetro(getSampleMetroId());

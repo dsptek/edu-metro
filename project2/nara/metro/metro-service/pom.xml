@@ -14,7 +14,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>nara.metro</groupId>
-			<artifactId>metro-store</artifactId>
+		<!--
+			<artifactId>metro-store-mybatis</artifactId>
+		-->
+			<artifactId>metro-store-jpa</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
