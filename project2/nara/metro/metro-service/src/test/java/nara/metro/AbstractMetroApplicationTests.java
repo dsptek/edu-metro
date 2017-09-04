@@ -1,13 +1,7 @@
 package nara.metro;
 
-import nara.metro.adapter.rest.CitizenServiceRestAdapter;
-import nara.metro.adapter.rest.MetroProviderRestAdapter;
-import nara.metro.adapter.rest.MetroServiceRestAdapter;
-import nara.metro.domain.spec.sdo.CitizenCdo;
-import nara.metro.domain.spec.sdo.MetroCdo;
-import nara.share.domain.granule.Name;
-import nara.share.restclient.NaraRestClient;
-import nara.share.restclient.springweb.SpringWebRestClient;
+import java.util.Locale;
+
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
@@ -16,7 +10,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Locale;
+import nara.metro.adapter.rest.CitizenServiceRestAdapter;
+import nara.metro.adapter.rest.MetroProviderRestAdapter;
+import nara.metro.adapter.rest.MetroServiceRestAdapter;
+import nara.metro.domain.spec.sdo.CitizenCdo;
+import nara.metro.domain.spec.sdo.MetroCdo;
+import nara.share.domain.granule.Name;
+import nara.share.restclient.NaraRestClient;
+import nara.share.restclient.springweb.SpringWebRestClient;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = MetroTestApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

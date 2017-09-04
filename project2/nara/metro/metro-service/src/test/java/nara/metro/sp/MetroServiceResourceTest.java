@@ -21,7 +21,7 @@ public class MetroServiceResourceTest extends AbstractMetroApplicationTests {
     	//
     }
     
-//    @Test
+    @Test
     public void test() {
         //
         Metro metro = metroServiceRestAdapter().findMetro(getSampleMetroId());

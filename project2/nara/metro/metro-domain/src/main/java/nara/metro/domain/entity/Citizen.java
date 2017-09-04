@@ -36,7 +36,7 @@ public class Citizen extends Entity implements Aggregate {
         this.name = name;
         this.username = "";
         this.email = email;
-        this.phone = phone;
+//        this.phone = phone;
         this.disqualified = false;
         this.time = System.currentTimeMillis();
         this.metroId = metroId;

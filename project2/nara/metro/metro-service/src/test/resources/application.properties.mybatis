@@ -1,0 +1,21 @@
+logging.level.root=INFO
+logging.level.nara=DEBUG
+
+#spring.datasource.driver-class-name=org.h2.Driver
+#spring.h2.console.enabled=true
+#spring.h2.console.path=/h2-console
+
+spring.datasource.schema=classpath:schema.sql
+# mybatis
+mybatis.type-aliases-package=nara.metro.domain.entity,nara.share.domain
+mybatis.type-handlers-package=nara.metro.da.mybatis.typehandler
+
+# mongo
+#spring.data.mongodb.uri=mongodb://localhost/metro-test
+#spring.data.mongodb.database=metro-test
+#spring.data.mongodb.host=localhost
+#spring.data.mongodb.port=27017
+#spring.datasource.driverClassName=mongodb.jdbc.MongoDriver
+
+# Application
+nara.common.asset.location=http://nara.namoo.io/common-asset
