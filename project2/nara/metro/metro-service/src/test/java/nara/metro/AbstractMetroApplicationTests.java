@@ -11,6 +11,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import nara.metro.adapter.rest.CitizenServiceRestAdapter;
+import nara.metro.adapter.rest.LoginServiceRestAdapter;
 import nara.metro.adapter.rest.MetroProviderRestAdapter;
 import nara.metro.adapter.rest.MetroServiceRestAdapter;
 import nara.metro.domain.spec.sdo.CitizenCdo;
@@ -56,6 +57,12 @@ public abstract class AbstractMetroApplicationTests {
 		//
 		return new CitizenServiceRestAdapter(createRestClient());
 	}
+	
+	@Bean
+	public LoginServiceRestAdapter loginServiceRestAdapter() {
+		//
+		return new LoginServiceRestAdapter(createRestClient());
+	}
 
 	@Before
 	public void setup() throws InterruptedException {
@@ -75,5 +82,10 @@ public abstract class AbstractMetroApplicationTests {
 	public MetroCdo getSampleMetroCdo() {
 		//
 		return sampleMetroCdo;
+	}
+	
+	public String getSampleCitizenId() {
+		//
+		return sampleCitizenId;
 	}
 }

@@ -2,11 +2,10 @@ package nara.metro.da.mongo;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import nara.metro.da.mongo.document.citizen.CitizenDoc;
@@ -26,9 +25,6 @@ public class CitizenMongoStore implements CitizenStore {
 	
 	@Autowired
 	private DisqualifiedCitizenMongoRepository disqualifiedCitizenMongoRepository;
-	
-	@Autowired
-    private MongoTemplate mongoTemplate;
 	
 	@Override
 	public String create(Citizen citizen) {
@@ -86,14 +82,18 @@ public class CitizenMongoStore implements CitizenStore {
 //		List<CitizenDoc> citizenDocs = citizenMongoRepository.findByMetroId(metroId,
 //				new PageRequest(0, 10,));
 		
-		Query query = new Query();
-		query.addCriteria(Criteria.where("metroId").is(metroId));
-		
-		query.skip(offset);
-		query.limit(limit);
-		List<CitizenDoc> citizenDocs = mongoTemplate.find(query, CitizenDoc.class);
-		
-		return CitizenDoc.toDomains(citizenDocs);
+//		Query query = new Query();
+//		query.addCriteria(Criteria.where("metroId").is(metroId));
+//		
+//		query.skip(offset);
+//		query.limit(limit);
+//		List<CitizenDoc> citizenDocs = mongoTemplate.find(query, CitizenDoc.class);
+//		
+//		return CitizenDoc.toDomains(citizenDocs);
+		List<CitizenDoc> citizenDocs = citizenMongoRepository.findByMetroId(metroId, new PageRequest(offset, limit));
+		return citizenDocs.stream()
+				.map(doc -> doc.toDomain())
+				.collect(Collectors.toList());
 	}
 
 	@Override
