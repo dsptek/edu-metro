@@ -52,7 +52,7 @@ const metroId = naraContext.getContext().metroId;
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path={`${naraContext.contextPath()}/`} component={Base} >
+      <Route path={`${naraContext.path()}/`} component={Base} >
 
         <Route components={{ header: MetroHeader, leftSideBarLayout: LeftSideBarLayout, contentLayout: ContentLayout }} >
 

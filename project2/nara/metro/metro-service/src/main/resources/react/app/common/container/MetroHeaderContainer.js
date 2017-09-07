@@ -18,8 +18,8 @@ class MetroHeaderContainer extends Component {
   static getDramas() {
     return [
       //
-      { name: 'Nara',     className: 'app-img thumb24', img: `${naraContext.contextPath()}/res/img/app-icon/no_icon.png`,     url: `/nara` },
-      { name: 'Metro',    className: 'app-img thumb24', img: `${naraContext.contextPath()}/res/img/app-icon/no_icon.png`,     url: `/metros/M1` },
+      { name: 'Nara',     className: 'app-img thumb24', img: `${naraContext.path()}/res/img/app-icon/no_icon.png`,     url: `/nara` },
+      { name: 'Metro',    className: 'app-img thumb24', img: `${naraContext.path()}/res/img/app-icon/no_icon.png`,     url: `/metros/M1` },
     ];
   }
 

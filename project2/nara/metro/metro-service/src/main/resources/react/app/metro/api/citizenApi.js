@@ -14,8 +14,8 @@ ajax.setErrorCallback((errorCode) => {
   }
 });
 
-const citizenBaseUrl = `${naraContext.contextPath()}/api/s/citizens`;
-const disqualifiedBaseUrl = `${naraContext.contextPath()}/api/s/disqualified-citizens`;
+const citizenBaseUrl = `${naraContext.path()}/api/s/citizens`;
+const disqualifiedBaseUrl = `${naraContext.path()}/api/s/disqualified-citizens`;
 
 export default {
   //

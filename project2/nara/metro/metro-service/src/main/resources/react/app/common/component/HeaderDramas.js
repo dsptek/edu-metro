@@ -40,7 +40,7 @@ class HeaderDramas extends Component {
           { props.dramas.length > 0 &&
             <li className="app-item app-all">
               <a className="app-img thumb24" onClick={props.onToggleLaunchpad}>
-                <img src={`${naraContext.contextPath()}/res/img/img-app-all.png`} alt="All drama"/>
+                <img src={`${naraContext.path()}/res/img/img-app-all.png`} alt="All drama"/>
               </a>
               <span className="app-tooltip">전체 드라마</span>
             </li>

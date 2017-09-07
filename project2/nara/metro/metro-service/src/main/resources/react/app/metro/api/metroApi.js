@@ -14,7 +14,7 @@ ajax.setErrorCallback((errorCode) => {
   }
 });
 
-const metroBaseUrl = `${naraContext.contextPath()}/api/s/metros`;
+const metroBaseUrl = `${naraContext.path()}/api/s/metros`;
 
 export default {
   //
