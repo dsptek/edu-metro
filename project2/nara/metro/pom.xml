@@ -17,10 +17,8 @@
         <module>metro-domain</module>
         <module>metro-service</module>
         <module>metro-adapter</module>
-        <!--
         <module>metro-store-jpa</module>
         <module>metro-store-mybatis</module>
-        -->
         <module>metro-store-mongo</module>
         <module>metro-boot</module>
         <module>metro-war</module>

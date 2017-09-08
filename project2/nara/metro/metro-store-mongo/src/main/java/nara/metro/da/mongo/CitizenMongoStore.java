@@ -29,6 +29,8 @@ public class CitizenMongoStore implements CitizenStore {
 	@Override
 	public String create(Citizen citizen) {
 		//
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> using MongoRepository");
+		
         String id = citizen.getId();
         if (citizenMongoRepository.exists(id)) throw new AlreadyExistsException(String.format("Citizen document[ID:%s] already exist.", id));
 

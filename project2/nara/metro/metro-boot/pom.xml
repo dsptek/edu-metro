@@ -20,6 +20,7 @@
             <version>${project.version}</version>
         </dependency>
         
+        <!-- MongoDB 
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -28,8 +29,10 @@
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
 		</dependency>
+        -->
         
-        <!--
+        <!-- RDB
+        -->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
@@ -38,7 +41,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
-        -->
     </dependencies>
 
     <build>

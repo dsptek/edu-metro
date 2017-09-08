@@ -12,11 +12,34 @@
 	<artifactId>metro-service</artifactId>
 
 	<dependencies>
+		<!-- MongoDB 
+		-->
 		<dependency>
 			<groupId>nara.metro</groupId>
 			<artifactId>metro-store-mongo</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<!-- MongoDB - MongoTemplate 
+		<dependency>
+			<groupId>nara.metro</groupId>
+			<artifactId>metro-store-mongo-mongotemplate</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		-->
+		<!-- JPA
+		<dependency>
+			<groupId>nara.metro</groupId>
+			<artifactId>metro-store-jpa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		-->
+		<!-- myBATIS
+		<dependency>
+			<groupId>nara.metro</groupId>
+			<artifactId>metro-store-mybatis</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		-->
 		<dependency>
 			<groupId>nara.metro</groupId>
 			<artifactId>metro-adapter</artifactId>
@@ -24,6 +47,8 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- MongoDB
+		-->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-data-mongodb</artifactId>
