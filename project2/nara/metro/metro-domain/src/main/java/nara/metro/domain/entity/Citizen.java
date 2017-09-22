@@ -20,6 +20,9 @@ public class Citizen extends Entity implements Aggregate {
 
     private String metroId;
 
+    transient List<LoginTime> loginTimes;
+    transient LoginUser loginUser;
+
     public Citizen() {
         //
     }

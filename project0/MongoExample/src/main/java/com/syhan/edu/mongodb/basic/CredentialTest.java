@@ -18,7 +18,7 @@ public class CredentialTest {
 		MongoClient client = new MongoClient(new ServerAddress(server), Arrays.asList(credential));
 
 		DB db = client.getDB("mydb");
-		DBCollection coll = db.getCollection("users");
+		DBCollection coll = db.getCollection("communities");
 		System.out.println(coll.findOne());
 	}
 }

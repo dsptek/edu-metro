@@ -15,6 +15,8 @@ public class Metro extends Entity implements Aggregate {
     private AdminList admins;
     private long time;
 
+    transient private List<Citizen> citizens;
+
     public Metro() {
         //
     }

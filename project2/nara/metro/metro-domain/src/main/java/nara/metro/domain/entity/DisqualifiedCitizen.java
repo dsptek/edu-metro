@@ -17,6 +17,8 @@ public class DisqualifiedCitizen extends Entity {
     private long disqualifiedTime;
     private String metroId;
 
+    transient private Citizen citizen;
+
     public DisqualifiedCitizen() {
         // 
     }

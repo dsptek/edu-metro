@@ -2,6 +2,7 @@
 .settings/
 .project
 .classpath
+.DS_Store
 
 # build output
 target/

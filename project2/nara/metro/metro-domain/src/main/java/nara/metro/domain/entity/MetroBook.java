@@ -9,6 +9,8 @@ public class MetroBook extends Entity {
     //
     private long sequence;
 
+    transient private List<Metro> metros;
+
     public MetroBook() {
         //
         super();
